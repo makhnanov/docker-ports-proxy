@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+
+    nginx:
+        build:
+            context: ./docker/nginx
+        volumes:
+            - "./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+            - "./private/:/etc/nginx/conf.d/private/"
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ports:
+            - "80:80"
+        restart: always

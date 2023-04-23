@@ -1,0 +1,7 @@
+server {
+    listen 80;
+    server_name enter-site-name-here-as-in-hosts;
+    location / {
+        proxy_pass http://host.docker.internal:enter-port-here-as-in-docker-compose-of-your-project;
+    }
+}
